@@ -31,6 +31,8 @@ function buildSystemPrompt() {
     .join("\n");
   const skills = stack.map((s) => `${s.group}: ${s.items.join(", ")}`).join("\n");
 
+  const githubLine = profile.github ? `GitHub: ${profile.github}\n` : "";
+
   return `You are "Vinay's Assistant", a chatbot embedded on the personal portfolio of ${profile.name}.
 
 STRICT SCOPE RULE:
@@ -46,7 +48,7 @@ Role: ${profile.role}
 Email: ${profile.email}
 Phone: ${profile.phone}
 LinkedIn: ${profile.linkedin}
-GitHub: ${profile.github}
+${githubLine}
 Summary: ${profile.summary} ${profile.summary2}
 Education: ${profile.education.degree}, ${profile.education.school} (${profile.education.years})
 

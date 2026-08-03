@@ -33,9 +33,11 @@ export function Contact() {
 
   const links = [
     { href: profile.linkedin, icon: Linkedin, label: "LinkedIn", value: "in/vinaykumar675" },
-    { href: profile.github, icon: Github, label: "GitHub", value: "VinayKumar939" },
+    profile.github
+      ? { href: profile.github, icon: Github, label: "GitHub", value: "VinayKumar939" }
+      : null,
     { href: `mailto:${profile.email}`, icon: Mail, label: "Gmail", value: profile.email },
-  ];
+  ].filter(Boolean) as { href: string; icon: any; label: string; value?: string }[];
 
   return (
     <Section id="contact" eyebrow="05 — Contact Me" title="Let's build something.">

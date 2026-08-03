@@ -95,20 +95,22 @@ export function Hero() {
           <div className="ml-1 flex items-center gap-2">
             {[
               { href: profile.linkedin, icon: Linkedin, label: "LinkedIn" },
-              { href: profile.github, icon: Github, label: "GitHub" },
+              profile.github ? { href: profile.github, icon: Github, label: "GitHub" } : null,
               { href: `mailto:${profile.email}`, icon: Mail, label: "Email" },
-            ].map(({ href, icon: Icon, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={label}
-                className="rounded-full border bg-surface/60 p-3 text-muted-foreground backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/60 hover:text-primary"
-              >
-                <Icon size={17} />
-              </a>
-            ))}
+            ]
+              .filter(Boolean)
+              .map(({ href, icon: Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={label}
+                  className="rounded-full border bg-surface/60 p-3 text-muted-foreground backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/60 hover:text-primary"
+                >
+                  <Icon size={17} />
+                </a>
+              ))}
           </div>
         </div>
 
