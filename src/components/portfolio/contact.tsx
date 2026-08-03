@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { Github, Linkedin, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { toast } from "sonner";
+import { GitHubIcon, LinkedInIcon } from "./social-icons";
 
 import { Section } from "./section";
 import { profile } from "@/data/portfolio";
@@ -32,9 +33,9 @@ export function Contact() {
   };
 
   const links = [
-    { href: profile.linkedin, icon: Linkedin, label: "LinkedIn", value: "in/vinaykumar675" },
+    { href: profile.linkedin, icon: LinkedInIcon, label: "LinkedIn", value: "in/vinaykumar675" },
     profile.github
-      ? { href: profile.github, icon: Github, label: "GitHub", value: "VinayKumar939" }
+      ? { href: profile.github, icon: GitHubIcon, label: "GitHub", value: "VinayKumar939" }
       : null,
     { href: `mailto:${profile.email}`, icon: Mail, label: "Gmail", value: profile.email },
   ].filter(Boolean) as { href: string; icon: any; label: string; value?: string }[];

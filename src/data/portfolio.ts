@@ -7,7 +7,7 @@ export const profile = {
   email: "vinay.kmannava@gmail.com",
   phone: "+1 (469) 956-9235",
   linkedin: "https://www.linkedin.com/in/vinaykumar675/",
-  github: "",
+  github: "https://github.com/VinayKumar939",
   summary:
     "Software Developer with 3 years of experience designing, building, and operating robust, performant production services using C#, .NET and Angular on AWS. I care about low-level system design, clean API contracts, solid data modeling, and the CS fundamentals underneath — DSA, object-oriented design, and distributed systems.",
   summary2:

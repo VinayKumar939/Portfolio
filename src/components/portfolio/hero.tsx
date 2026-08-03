@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
+import { GitHubIcon, LinkedInIcon } from "./social-icons";
 
 import { highlights, profile } from "@/data/portfolio";
 
 const ROLES = [
   "Full Stack Software Developer",
-  "C# / .NET & Angular Engineer",
-  "AWS Cloud & Microservices Builder",
-  "AI & Agent Workflow Tinkerer",
+  "Cloud & Microservices Builder",
+  "AI & Agent Workflow Enthusiast",
 ];
 
 function useTypewriter(words: string[]) {
@@ -94,8 +94,8 @@ export function Hero() {
 
           <div className="ml-1 flex items-center gap-2">
             {[
-              { href: profile.linkedin, icon: Linkedin, label: "LinkedIn" },
-              profile.github ? { href: profile.github, icon: Github, label: "GitHub" } : null,
+              { href: profile.linkedin, icon: LinkedInIcon, label: "LinkedIn" },
+              profile.github ? { href: profile.github, icon: GitHubIcon, label: "GitHub" } : null,
               { href: `mailto:${profile.email}`, icon: Mail, label: "Email" },
             ]
               .filter(Boolean)
