@@ -1,8 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { generateText } from "ai";
 import { z } from "zod";
-
-import { createLovableAiGatewayProvider } from "./ai-gateway.server";
+import { createAiProvider } from "./ai-gateway.server";
 import { experience, profile, projects, stack } from "@/data/portfolio";
 
 const ChatInput = z.object({
@@ -23,11 +22,11 @@ function buildSystemPrompt() {
   const exp = experience
     .map(
       (e) =>
-        `${e.role} at ${e.company} (${e.period}). Stack: ${e.stack.join(", ")}. ${e.points.join(" ")}`,
+        `${e.role} at ${e.company} (${e.period}). Stack: ${e.stack.join(", ")}. ${e.description}`,
     )
     .join("\n");
   const proj = projects
-    .map((p) => `${p.title} — ${p.subtitle}. Tech: ${p.stack.join(", ")}. ${p.description}`)
+    .map((p) => `${p.title} . Tech: ${p.stack.join(", ")}. ${p.description}`)
     .join("\n");
   const skills = stack.map((s) => `${s.group}: ${s.items.join(", ")}`).join("\n");
 
@@ -46,7 +45,6 @@ STYLE: Warm, concise, first-person-about-Vinay ("Vinay built..."). Plain text, 2
 Name: ${profile.name}
 Role: ${profile.role}
 Email: ${profile.email}
-Phone: ${profile.phone}
 LinkedIn: ${profile.linkedin}
 ${githubLine}
 Summary: ${profile.summary} ${profile.summary2}
@@ -65,16 +63,16 @@ ${skills}`;
 export const askAboutVinay = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => ChatInput.parse(input))
   .handler(async ({ data }) => {
-    const key = process.env["LOVABLE_API_KEY"];
+    const key = process.env["GROQ_API_KEY"];
     if (!key) {
       return { ok: false as const, outOfScope: false, reply: "", error: "AI is not configured." };
     }
 
-    const gateway = createLovableAiGatewayProvider(key);
+    const provider = createAiProvider(key);
 
     try {
       const { text } = await generateText({
-        model: gateway("google/gemini-3.6-flash"),
+        model: provider("llama-3.1-8b-instant"),
         system: buildSystemPrompt(),
         messages: data.messages,
       });
@@ -84,14 +82,15 @@ export const askAboutVinay = createServerFn({ method: "POST" })
         return { ok: true as const, outOfScope: true, reply: "", error: null };
       }
       return { ok: true as const, outOfScope: false, reply, error: null };
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Unknown error";
+    } catch (err: any) {
+      const message = err?.message ?? String(err);
+      const detail = err?.response?.data ?? err?.cause ?? "";
+      console.error("chat error:", message, detail);
       const status = message.includes("429")
         ? "I'm getting a lot of questions right now — please try again in a moment."
-        : message.includes("402")
+        : message.includes("402") || message.includes("403")
           ? "The assistant is temporarily out of credits."
           : "Something went wrong reaching the assistant. Please try again.";
-      console.error("chat error:", message);
       return { ok: false as const, outOfScope: false, reply: "", error: status };
     }
   });

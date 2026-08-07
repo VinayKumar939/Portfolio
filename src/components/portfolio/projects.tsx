@@ -32,9 +32,6 @@ export function Projects() {
             </div>
 
             <div className="flex flex-1 flex-col p-7">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
-                {project.subtitle}
-              </p>
               <h3 className="mt-2 text-xl font-semibold transition-colors group-hover:text-primary">
                 {project.title}
               </h3>

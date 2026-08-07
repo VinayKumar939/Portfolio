@@ -5,13 +5,12 @@ export const profile = {
   name: "Vinay Kumar Mannava",
   role: "Full Stack Software Developer",
   email: "vinay.kmannava@gmail.com",
-  phone: "+1 (469) 956-9235",
   linkedin: "https://www.linkedin.com/in/vinaykumar675/",
   github: "https://github.com/VinayKumar939",
   summary:
-    "Software Developer with 3 years of experience designing, building, and operating robust, performant production services using C#, .NET and Angular on AWS. I care about low-level system design, clean API contracts, solid data modeling, and the CS fundamentals underneath — DSA, object-oriented design, and distributed systems.",
+    "Software Developer with 3 years of experience designing, building, and shipping production-grade services across the full stack — from C#, .NET and Python/Django backends to Angular frontends, deploying on AWS. I take ownership of what I build: writing clean, maintainable code, keeping services reliable in production, and iterating quickly when things need to change.",
   summary2:
-    "I ship reliable, scalable software through code reviews, observability and CI/CD, and I have spent plenty of nights debugging real production incidents. Lately I have been building AI/ML-driven tools and agent workflows and folding them into real products.",
+    "Experienced in delivering reliable, scalable applications through disciplined development practices, automated CI/CD pipelines, production monitoring, and operational support. Recently focused on applying Generative AI and agent-based workflows to develop practical solutions for real-world business needs.",
   education: {
     degree: "M.S. in Information Technology & Management",
     school: "University of Texas at Dallas, Dallas, TX",
@@ -22,7 +21,6 @@ export const profile = {
 export const highlights = [
   { value: "3+", label: "Years building production services" },
   { value: "AWS", label: "ECS, Lambda, API Gateway, Cognito" },
-  { value: "24/7", label: "On-call incident first responder" },
   { value: "AI", label: "MCP agents & GenAI workflows" },
 ];
 
@@ -32,40 +30,24 @@ export const experience = [
     role: "Software Developer",
     period: "Feb 2025 – Present",
     stack: ["C#", "ASP.NET Core", "Angular 18", "NgRx", "AWS", "DynamoDB"],
-    points: [
-      "Designed and implemented RESTful microservices in C# / ASP.NET Core, applying OOP principles and data structures to build reliable multi-tenant systems.",
-      "Used EF Core (LINQ) and Dapper across SQL Server and Aurora, DynamoDB for NoSQL, and Amazon S3 for applicant document storage.",
-      "Secured backend services with AWS Cognito via a custom API Gateway Authorizer and used SQS/SNS for event-driven communication across services.",
-      "Built responsive Angular 18 SPA components with Angular Material, NgRx state management and ag-grid data tables.",
-      "Ran JMeter load tests, Selenium automation suites and Jest/Jasmine unit tests to catch regressions before release.",
-      "Built CloudWatch and Sumo Logic dashboards, and used CloudFront + Redis caching to improve performance.",
-      "Automated CI/CD with AWS Lambda, CodeBuild, CodePipeline and ECR for containerized deployments.",
-      "Built an MCP server integrating Figma, Slack and Jira with custom AI agents and GitHub Copilot to streamline design handoff and code review.",
-    ],
+    description:
+      "Developing secure, scalable multi-tenant applications with C#, ASP.NET Core, Angular, and AWS while supporting automated delivery, observability, and AI-assisted engineering workflows.",
   },
   {
     company: "Cigna HealthCare",
     role: "Software Developer Intern",
     period: "Dec 2023 – Nov 2024",
     stack: ["Python", "Django", "FastAPI", "Angular", "PostgreSQL", "AWS"],
-    points: [
-      "Built and maintained CRUD microservices with Python, Django and FastAPI deployed on AWS, structured with clean OOP service logic.",
-      "Developed Angular front-end components against Django/FastAPI APIs following PHI/HIPAA security standards.",
-      "Monitored application health and debugged production issues with AWS CloudWatch in an Agile/Scrum team using Git and Jira.",
-      "Wrote and optimized SQL queries and ORM data models on PostgreSQL for efficient, reliable data access.",
-    ],
+    description:
+      "Built HIPAA-aligned healthcare applications using Python, Django, FastAPI, Angular, PostgreSQL, and AWS, with a focus on reliable APIs, efficient data access, and production support.",
   },
   {
     company: "Wipro",
     role: "Software Developer",
     period: "Nov 2022 – July 2023",
     stack: ["Python", "SQL", "Git", "Agile"],
-    points: [
-      "Contributed to Python modules for a banking client supporting customer onboarding and transaction workflows.",
-      "Applied OOP concepts and data structures to write and debug Python scripts for data validation and processing.",
-      "Assisted with unit tests and defect resolution during QA cycles using Git-based version control and code reviews.",
-      "Wrote SQL queries for data retrieval and reporting, and documented code changes and testing steps.",
-    ],
+    description:
+      "Contributed to Python and SQL solutions for banking workflows, including data validation, testing, defect resolution, reporting, and delivery within an Agile engineering team.",
   },
 ];
 
@@ -80,13 +62,12 @@ export const projects = [
     url: "https://github.com/VinayKumar939",
   },
   {
-    title: "Real-Time Collaborative Issue Tracker",
-    subtitle: "Full-Stack Platform",
+    title: "MNIST Digital Classification and Handwritten Digit Recognition",
     description:
-      "A multi-tiered issue tracking platform with a C#/.NET REST API backend and a React single-page frontend. Object-oriented design patterns model the issue lifecycle, WebSockets push real-time updates to every collaborator, and the whole thing runs on AWS as containerized, API-driven microservices.",
-    stack: ["C#", ".NET", "React", "WebSockets", "AWS", "Docker"],
+      "An interactive handwritten digit recognition application powered by a convolutional neural network trained on the MNIST dataset with TensorFlow and Keras. The trained model is converted to TensorFlow.js for real-time, in-browser inference, allowing users to draw digits with mouse or touch input and view confidence scores across all ten classes through Chart.js visualizations.",
+    stack: ["Python", "TensorFlow", "Keras", "TensorFlow.js", "JavaScript", "Chart.js"],
     image: trackerImage,
-    url: "https://github.com/VinayKumar939",
+    url: "https://vinays-digit-recognition.netlify.app/",
   },
 ];
 

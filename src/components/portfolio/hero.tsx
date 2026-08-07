@@ -55,7 +55,6 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
             </span>
-            Available for new opportunities
           </span>
         </div>
 
@@ -66,11 +65,6 @@ export function Hero() {
         <p className="mt-5 h-8 font-mono text-base text-primary sm:text-lg">
           {typed}
           <span className="ml-0.5 inline-block animate-[blink-caret_1s_step-end_infinite]">|</span>
-        </p>
-
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          I build and operate resilient backend services and polished front-ends — from multi-tenant
-          .NET APIs on AWS to Angular and React interfaces people use every day.
         </p>
 
         <div className="mt-9 flex flex-wrap items-center gap-3">

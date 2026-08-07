@@ -20,7 +20,7 @@ export function Contact() {
     try {
       const result = await send({ data: form });
       if (result.ok) {
-        toast.success("Message sent — Vinay will get back to you soon.");
+        toast.success("Message received — Vinay will get back to you soon.");
         setForm({ name: "", email: "", message: "" });
       } else {
         toast.error(result.error ?? "Couldn't send the message.");
@@ -63,9 +63,6 @@ export function Contact() {
           ))}
 
           <div className="glow-card rounded-2xl p-5 text-sm text-muted-foreground">
-            <p className="flex items-center gap-3">
-              <Phone size={16} className="text-primary" /> {profile.phone}
-            </p>
             <p className="mt-3 flex items-center gap-3">
               <MapPin size={16} className="text-primary" /> Dallas, TX — open to relocation
             </p>
