@@ -39,7 +39,7 @@ export function Experience() {
   }, []);
 
   return (
-    <Section id="experience" eyebrow="02 — Experience" title="Where I've shipped.">
+    <Section id="experience" eyebrow="02 — Experience" title="">
       <div ref={timelineRef} className="relative space-y-6">
         <span
           aria-hidden="true"

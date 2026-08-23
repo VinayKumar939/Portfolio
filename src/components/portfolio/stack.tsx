@@ -61,7 +61,7 @@ const skillLogos: Record<string, string> = {
 
 export function Stack() {
   return (
-    <Section id="stack" eyebrow="04 — Stack" title="Tools I reach for.">
+    <Section id="stack" eyebrow="04 — Stack" title="Tools">
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {stack.map((group) => (
           <div key={group.group} className="glow-card rounded-3xl p-6">

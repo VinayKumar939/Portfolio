@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { generateText } from "ai";
 import { z } from "zod";
-import { createAiProvider } from "./ai-gateway.server";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { experience, profile, projects, stack } from "@/data/portfolio";
 
 const ChatInput = z.object({
@@ -63,18 +63,26 @@ ${skills}`;
 export const askAboutVinay = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => ChatInput.parse(input))
   .handler(async ({ data }) => {
-    const key = process.env["GROQ_API_KEY"];
-    if (!key) {
-      return { ok: false as const, outOfScope: false, reply: "", error: "AI is not configured." };
-    }
-
-    const provider = createAiProvider(key);
+  const key = process.env["GEMINI_API_KEY"];
+  if (!key) {
+    return {
+      ok: false as const,
+      outOfScope: false,
+      reply: "",
+      error: "AI is not configured.",
+    };
+  }
+  const google = createGoogleGenerativeAI({
+  apiKey: key,
+});
 
     try {
       const { text } = await generateText({
-        model: provider("llama-3.1-8b-instant"),
+        model: google("gemini-3.6-flash"),
         system: buildSystemPrompt(),
-        messages: data.messages,
+        messages: data.messages.slice(-12),
+        maxOutputTokens: 300,
+        temperature: 0.3,
       });
 
       const reply = text.trim();

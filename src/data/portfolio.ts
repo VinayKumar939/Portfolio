@@ -8,7 +8,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/vinaykumar675/",
   github: "https://github.com/VinayKumar939",
   summary:
-    "Software Developer with 3 years of experience designing, building, and shipping production-grade services across the full stack — from C#, .NET and Python/Django backends to Angular frontends, deploying on AWS. I take ownership of what I build: writing clean, maintainable code, keeping services reliable in production, and iterating quickly when things need to change.",
+    "Software Developer with 4 years of experience designing, building, and shipping production-grade services across the full stack — from C#, .NET and Python/Django backends to Angular frontends, deploying on AWS. I take ownership of what I build: writing clean, maintainable code, keeping services reliable in production, and iterating quickly when things need to change.",
   summary2:
     "Experienced in delivering reliable, scalable applications through disciplined development practices, automated CI/CD pipelines, production monitoring, and operational support. Recently focused on applying Generative AI and agent-based workflows to develop practical solutions for real-world business needs.",
   education: {
@@ -19,7 +19,7 @@ export const profile = {
 };
 
 export const highlights = [
-  { value: "3+", label: "Years building production services" },
+  { value: "4+", label: "Years building production services" },
   { value: "AWS", label: "ECS, Lambda, API Gateway, Cognito" },
   { value: "AI", label: "MCP agents & GenAI workflows" },
 ];
