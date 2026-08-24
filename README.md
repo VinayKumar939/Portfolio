@@ -2,7 +2,7 @@
 
 Welcome to my portfolio website — a modern, responsive showcase of my work as a Full Stack Software Developer.
 
-Live site: https://portfolio-e2vk.onrender.com/
+Live site: https://mannavavinay.netlify.app/
 
 ## About
 I build reliable, scalable software across the full stack, with experience in cloud-native applications, backend services, frontend development, and practical AI-powered solutions. This portfolio highlights my background, selected projects, technical stack, and ways to get in touch.
